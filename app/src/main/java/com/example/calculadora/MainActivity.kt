@@ -46,9 +46,22 @@ class MainActivity : AppCompatActivity() {
         binding.buttonPorcentaje.setOnClickListener {
             //
 
+                   binding.editTextNumber.setText(percentaje(operador))
+
         }
     }
 
+
+        fun percentaje(operatorToUse: Char) : String{
+            when(operatorToUse){
+                '+' -> {return "${firstValue + (firstValue*binding.editTextNumber.text.toString().toDouble()/100)}" }
+                '-' -> {return "${firstValue - (firstValue*binding.editTextNumber.text.toString().toDouble()/100)}"}
+                else -> { return "ERROR"}
+
+            }
+
+            return ""
+        }
     fun getOperator(view: View){
         val button = view as Button
 
